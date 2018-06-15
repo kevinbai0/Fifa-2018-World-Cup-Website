@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "../stylesheets/standings.css";
+import "../../stylesheets/standings.css";
 
 export default class GroupTable extends Component {
     constructor(props) {

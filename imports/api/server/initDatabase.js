@@ -1,4 +1,4 @@
-import { Teams } from "../teams.js";
+import { Teams, Games } from "../teams.js";
 
 if (Teams.find({}).count() == 0) {
     // instantiate database
@@ -51,5 +51,92 @@ if (Teams.find({}).count() == 0) {
             goalsAgainst: 0,
             points: 0
         })
+    });
+}
+if (Games.find({}).count() == 0) {
+    let games = [
+        ["Russia", "Saudi Arabia", "Thursday", "June", 14, 14, "Group", "A", "Moscow"],
+        ["Egypt", "Uruguay", "Friday", "June", 15, 8, "Group", "A", "Yekaterinburg"],
+        ["Morocco", "Iran", "Friday", "June", 15, 11, "Group", "B", "Saint Petersburg"],
+        ["Portugal", "Spain", "Friday", "June", 15, 14, "Group", "B", "Sochi"],
+        ["France", "Australia", "Saturday", "June", 16, 6, "Group", "C", "Kazan"],
+        ["Argentina", "Iceland", "Saturday", "June", 16, 9, "Group", "D", "Moscow"],
+        ["Peru", "Denmark", "Saturday", "June", 16, 12, "Group", "C", "Saransk"],
+        ["Croatia", "Nigeria", "Saturday", "June", 16, 15, "Group", "D", "Kaliningrad"],
+        ["Costa Rica", "Serbia", "Sunday", "June", 17, 8, "Group", "E", "Samara"],
+        ["Germany", "Mexico", "Sunday", "June", 17, 11, "Group", "F", "Moscow"],
+        ["Brazil", "Switzerland", "Sunday", "June", 17, 14, "Group", "E", "Rostov"],
+        ["Sweden", "South Korea", "Monday", "June", 18, 8, "Group", "F", "Nizhny Novgorod"],
+        ["Belgium", "Panama", "Monday", "June", 18, 11, "Group", "G", "Sochi"],
+        ["Tunisia", "England", "Monday", "June", 18, 14, "Group", "G", "Volgograd"],
+        ["Poland", "Senegal", "Tuesday", "June", 19, 8, "Group", "H", "Moscow"],
+        ["Colombia", "Japan", "Tuesday", "June", 19, 11, "Group", "H", "Saransk"],
+        ["Russia", "Egypt", "Tuesday", "June", 19, 14, "Group", "A", "Saint Petersburg"],
+        ["Portugal", "Morocco", "Wednesday", "June", 20, 8, "Group", "B", "Moscow"],
+        ["Uruguay", "Saudi Arabia", "Wednesday", "June", 20, 11, "Group", "A", "Rostov"],
+        ["Iran", "Spain", "Wednesday", "June", 20, 14, "Group", "B", "Kazan"],
+        ["France", "Peru", "Thursday", "June", 21, 8, "Group", "C", "Yekaterinburg"],
+        ["Denmark", "Australia", "Thursday", "June", 21, 11, "Group", "C", "Samara"],
+        ["Argentina", "Croatia", "Thursday", "June", 21, 14, "Group", "D", "Nizhny Novgorod"],
+        ["Brazil", "Costa Rica", "Friday", "June", 22, 8, "Group", "E", "Saint Petersburg"],
+        ["Nigeria", "Iceland", "Friday", "June", 22, 11, "Group", "D", "Volgograd"],
+        ["Serbia", "Switzerland", "Friday", "June", 22, 14, "Group", "E", "Kaliningrad"],
+        ["Belgium", "Tunisia", "Saturday", "June", 23, 8, "Group", "G", "Moscow"],
+        ["Germany", "Sweden", "Saturday", "June", 23, 11, "Group", "F", "Sochi"],
+        ["South Korea", "Mexico", "Saturday", "June", 23, 14, "Group", "F", "Rostov"],
+        ["England", "Panama", "Sunday", "June", 24, 8, "Group", "G", "Nizhny Novgorod"],
+        ["Japan", "Senegal", "Sunday", "June", 24, 11, "Group", "H", "Yekaterinburg"],
+        ["Poland", "Colombia", "Sunday", "June", 24, 14, "Group", "H", "Kazan"],
+        ["Saudi Arabia", "Egypt", "Monday", "June", 25, 10, "Group", "A", "Volgograd"],
+        ["Uruguay", "Russia", "Monday", "June", 25, 10, "Group", "A", "Samara"],
+        ["Iran", "Portugal", "Monday", "June", 25, 14, "Group", "B", "Saransk"],
+        ["Spain", "Morocco", "Monday", "June", 25, 14, "Group", "B", "Kaliningrad"],
+        ["Australia", "Peru", "Tuesday", "June", 26, 10, "Group", "C", "Sochi"],
+        ["Denmark", "France", "Tuesday", "June", 26, 10, "Group", "C", "Moscow"],
+        ["Iceland", "Croatia", "Tuesday", "June", 26, 14, "Group", "D", "Rostov"],
+        ["Nigeria", "Argentina", "Tuesday", "June", 26, 14, "Group", "D", "Saint Petersburg"],
+        ["South Korea", "Germany", "Wednesday", "June", 27, 10, "Group", "F", "Kazan"],
+        ["Mexico", "Sweden", "Wednesday", "June", 27, 10, "Group", "F", "Yekaterinburg"],
+        ["Switzerland", "Costa Rica", "Wednesday", "June", 27, 14, "Group", "E", "Nizhny Novgorod"],
+        ["Serbia", "Brazil", "Wednesday", "June", 27, 14, "Group", "E", "Saint Petersburg"],
+        ["Japan", "Poland", "Thursday", "June", 28, 10, "Group", "H", "Volgograd"],
+        ["Senegal", "Colombia", "Thursday", "June", 28, 10, "Group", "H", "Samara"],
+        ["England", "Belgium", "Thursday", "June", 28, 14, "Group", "G", "Kaliningrad"],
+        ["Panama", "Tunisia", "Thursday", "June", 28, 14, "Group", "G", "Saransk"],
+        ["C1", "D2", "Saturday", "June", 30, 10, "Playoff", "Round of 16", "Kazan"],
+        ["A1", "B2", "Saturday", "June", 30, 14, "Playoff", "Round of 16", "Sochi"],
+        ["B1", "A2", "Sunday", "July", 1, 10, "Playoff", "Round of 16", "Moscow"],
+        ["D1", "C2", "Sunday", "July", 1, 14, "Playoff", "Round of 16", "Nizhny Novgorod"],
+        ["E1", "F2", "Monday", "July", 2, 10, "Playoff", "Round of 16", "Samara"],
+        ["G1", "H2", "Monday", "July", 2, 14, "Playoff", "Round of 16", "Rostov"],
+        ["F1", "E2", "Tuesday", "July", 3, 10, "Playoff", "Round of 16", "Saint Petersburg"],
+        ["H1", "G2", "Tuesday", "July", 3, 14, "Playoff", "Round of 16", "Rostov"],
+        ["49", "50", "Friday", "July", 6, 10, "Playoff", "Quarterfinals", "Nizhny Novgorod"],
+        ["53", "54", "Friday", "July", 6, 14, "Playoff", "Quarterfinals", "Kazan"],
+        ["55", "66", "Saturday", "July", 7, 10, "Playoff", "Quarterfinals", "Samara"],
+        ["51", "52", "Saturday", "July", 7, 14, "Playoff", "Quarterfinals", "Sochi"],
+        ["57", "58", "Tuesday", "July", 10, 14, "Playoff", "Semifinals", "Saint Petersburg"],
+        ["59", "60", "Wednesday", "July", 11, 14, "Playoff", "Semifinals", "Moscow"],
+        ["61", "62", "Saturday", "July", 14, 10, "Playoff", "Third-place", "Saint Petersburg"],
+        ["61", "62", "Sunday", "July", 15, 11, "Playoff", "Finals", "Moscow"]
+    ]
+    games.map((game, i) => {
+        let day = game[4].toString();
+        if (day.length == 1) {
+            day = "0" + day;
+        }
+        Games.insert({
+            number: i + 1,
+            home: game[0],
+            away: game[1],
+            date: new Date(2018, game[3] == "July" ? 6 : 5, game[4], game[5], 0, 0, 0),
+            matchType: game[6],
+            matchSubtype: game[7],
+            location: game[8],
+            homeScore: -1,
+            awayScore: -1,
+            homePK: -1,
+            awayPK: -1,
+        });
     });
 }

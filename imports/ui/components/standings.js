@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import GroupTable from "./groupTable.js";
-import { Teams } from "../api/teams.js";
+import { Teams } from "../../api/teams.js";
 import { withTracker } from 'meteor/react-meteor-data';
-import "../stylesheets/standings.css";
+import "../../stylesheets/standings.css";
 
 class Standings extends Component {
     render() {
@@ -17,7 +17,6 @@ class Standings extends Component {
                 }
             }
         }
-        console.log(groupTables);
         return (
             <div className="standings">
                 { 

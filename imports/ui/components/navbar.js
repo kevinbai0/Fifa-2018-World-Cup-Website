@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import "../stylesheets/nav.css";
+import { Link } from 'react-router-dom';
+import "../../stylesheets/nav.css";
 
 export default class Navbar extends Component {
-    navItemClicked = (e) => {
-        console.log(e.target);
-    }
     render() {
         return (
             <nav className="nav-container">
@@ -13,7 +11,9 @@ export default class Navbar extends Component {
                     {
                         this.props.items.map(function(item, i) {
                             return (
-                                <span className="nav-list-item" key={i} onClick={(e) => this.navItemClicked(e)}>{item}</span>
+                                <span className="nav-list-item" key={i}>
+                                    <Link to={item.link}> {item.title} </Link>
+                                </span>
                             );
                         }, this)
                     }

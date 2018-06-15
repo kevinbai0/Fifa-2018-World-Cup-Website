@@ -6,6 +6,10 @@
     border-radius: 2vw;
     box-shadow: 0 0.4vw 10px 1px black;
 }
+.nav-container a {
+    text-decoration: inherit;
+    color: inherit;
+}
 .nav-title {
     font-size: 3vw;
 }

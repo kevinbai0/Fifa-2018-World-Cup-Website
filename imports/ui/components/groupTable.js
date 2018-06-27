@@ -8,6 +8,19 @@ export default class GroupTable extends Component {
 
     render() {
         let teams = this.props.teams;
+        // sort teams by standing in group stage
+        let sortedTeams = teams.sort((team1, team2) => {
+            if (team1.points == team2.points) {
+                if (team1.goalDifferential == team2.goalDifferential) {
+                    if (team1.goalsFor == team2.goalsFor) {
+                        return team1.country < team2.country;
+                    }
+                    return team1.goalsFor;
+                }
+                return team1.goalDifferential < team2.goalDifferential;
+            }
+            return team1.points < team2.points
+        })
         return(
             <div className="group-table-container">
                 <h1> Group {this.props.group} </h1>
@@ -24,7 +37,7 @@ export default class GroupTable extends Component {
                             <th>PTS</th>
                         </tr>
                         {
-                            teams.map((team, i) => {
+                            sortedTeams.map((team, i) => {
                                 return(
                                     <tr key={i}>
                                         <td className="country-logo-cell"><img className="group-table-image" src={team.logoPath} /></td>

@@ -1,10 +1,9 @@
 .nav-container {
-    margin: 5vw;
-    background-color: rgb(0,30,66);
+    margin-bottom: 5vw;
+    background-color: rgb(64,187,174);
     padding: 2vw;
     color: white;
-    border-radius: 2vw;
-    box-shadow: 0 0.4vw 10px 1px black;
+    box-shadow: 0 0.1vw 36px 0px rgba(0,0,0,0.8);
 }
 .nav-container a {
     text-decoration: inherit;
@@ -14,16 +13,19 @@
     font-size: 3vw;
 }
 .nav-list-container {
-    background-color: rgb(118, 151, 186);
+    background-color: rgb(20, 142, 129);
     border-radius: 2vw;
-    padding: 2vw 3vw;
+    padding: 2vw 2vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: 2vw;
-    box-shadow: 0 0.2vw 10px 1px black;
 }
 
 .nav-list-item {
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+.nav-list-item:hover {
+    color: rgb(150,150,150);
 }

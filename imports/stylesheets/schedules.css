@@ -1,0 +1,115 @@
+.schedule-table {
+    width: 100vw;
+}
+.schedule-table-body {
+    background-color: rgb(20,142,129);
+
+    color: white;
+    border-radius: 2vw;
+    margin: 5vw 2vw;
+    padding: 2vw;
+    text-align: center;
+    border-spacing: 0;
+    box-shadow: 0 0.3vw 30px 0px rgba(0,0,0,0.8);
+
+}
+.schedule-table-body>h1 {
+    font-size: 3vw;
+    margin: 1vw;
+    text-align: left;
+    font-weight: 600;
+}
+.schedule-row {
+    display: flex;
+    padding-bottom: 0.5vw;
+    font-size: 3vw;
+}
+.schedule-title-row {
+    border-bottom: 1px solid white;
+    margin-bottom: 1vw;
+    font-weight: 600;
+}
+
+.schedule-row > .team-span-img {
+    text-align: right;
+}
+.schedule-row > .team-span-name {
+    text-align: left;
+}
+
+.schedule-row > .row-1 {
+    width: 15vw;
+}
+.schedule-row > .row-2-3 { /* title row */
+    width: 21vw;
+    text-align: left;
+}
+.schedule-row > .row-2 { /* img span */
+    width: 7vw;
+}
+.schedule-row > .row-3 { /* country name span*/
+    width: 13vw;
+    padding: 0 0 0 1vw;
+}
+.schedule-row > .row-4-5 { /* title row */
+    width: 21vw; 
+    text-align: left;
+}
+.schedule-row > .row-4 { /* img span */
+    width: 7vw;
+}
+
+.schedule-row > .row-5 { /* country name span */
+    width: 13vw;
+    padding: 0 0 0 1vw;
+}
+.schedule-row > .row-6 { /* score label */
+    width: 15vw;
+}
+.schedule-row > .row-7 {
+    width: 15vw;
+}
+.schedule-row > .row-8 {
+    width: 15vw;
+    display: none;
+}
+.schedule-row > .score-label {
+    font-size: 2.5vw;
+    font-weight: 600;
+}
+.schedule-row > span {
+    margin: auto;
+    padding: 1vw 0;
+}
+
+span > img {
+    margin: auto;
+    width: 100%;
+}
+.schedule-image-item > span {
+    margin: auto;
+}
+.schedule-table th {
+    border-bottom: 1px solid white;
+    padding: 1vw;
+}
+
+
+@media  only screen and (min-width: 600px) {
+    .schedule-row > .row-8 {
+        display: block;
+    }
+    .schedule-row  {
+        font-size: 2.5vw;
+    }
+}
+
+
+@media  only screen and (min-width: 960px) {
+    .schedule-row > .row-8 {
+        display: block;
+    }
+    .schedule-row  {
+        font-size: 2vw;
+    }
+}
